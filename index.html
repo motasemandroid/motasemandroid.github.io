@@ -1,55 +1,396 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>رسائل عيد الأضحى</title>
+  <title>Motasem Apps</title>
+  <meta name="description" content="A simple home for Motasem's GitHub Pages applications.">
   <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ee;
+      --panel: #ffffff;
+      --text: #202124;
+      --muted: #626a73;
+      --line: #ded8cf;
+      --brand: #0f766e;
+      --brand-strong: #0b4f4a;
+      --accent: #d97706;
+      --shadow: 0 18px 45px rgba(32, 33, 36, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Tahoma, Arial, sans-serif;
-      background: #faf7ef;
-      color: #1f2937;
-      line-height: 1.8;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.12), transparent 34%),
+        linear-gradient(315deg, rgba(217, 119, 6, 0.13), transparent 36%),
+        var(--bg);
     }
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 48px 22px;
-    }
-    h1 {
-      color: #125c4b;
-      font-size: 32px;
-      margin: 0 0 18px;
-    }
-    .panel {
-      background: #fff;
-      border: 1px solid #daccaa;
-      border-radius: 8px;
-      padding: 22px;
-      margin-top: 22px;
-    }
+
     a {
-      color: #125c4b;
-      font-weight: bold;
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 44px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      padding: 14px 0 38px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: #0f766e;
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(15, 118, 110, 0.28);
+    }
+
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--brand-strong);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: 34px;
+      align-items: center;
+      padding: 24px 0 38px;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.35rem, 7vw, 5.7rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      max-width: 620px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.3vw, 1.18rem);
+      line-height: 1.7;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 320px;
+      border-radius: 18px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 22% 22%, #fef3c7 0 12%, transparent 13%),
+        linear-gradient(145deg, #134e4a 0 48%, #f8fafc 48% 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .visual::before,
+    .visual::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(255, 255, 255, 0.76);
+      border-radius: 16px;
+      transform: rotate(-8deg);
+    }
+
+    .visual::before {
+      width: 54%;
+      height: 36%;
+      left: 9%;
+      top: 18%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .visual::after {
+      width: 52%;
+      height: 33%;
+      right: 9%;
+      bottom: 16%;
+      transform: rotate(7deg);
+      background: rgba(15, 118, 110, 0.1);
+      border-color: rgba(15, 118, 110, 0.35);
+    }
+
+    .visual-label {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      right: 24px;
+      color: #fff;
+      font-size: clamp(1.45rem, 3vw, 2.3rem);
+      line-height: 1.05;
+      font-weight: 900;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin: 12px 0 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.45rem, 3vw, 2.15rem);
+      letter-spacing: 0;
+    }
+
+    .count {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .app-card {
+      min-height: 285px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 12px 30px rgba(32, 33, 36, 0.08);
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .app-card:hover,
+    .app-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(15, 118, 110, 0.45);
+      box-shadow: var(--shadow);
+      outline: none;
+    }
+
+    .app-card-disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .app-card-disabled:hover {
+      transform: none;
+      border-color: var(--line);
+      box-shadow: 0 12px 30px rgba(32, 33, 36, 0.08);
+    }
+
+    .app-art {
+      display: grid;
+      place-items: center;
+      width: 78px;
+      height: 78px;
+      border-radius: 16px;
+      color: #fff;
+      font-size: 1.9rem;
+      font-weight: 900;
+      background: var(--card-color);
+    }
+
+    .app-card h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: 0;
+    }
+
+    .app-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .tag {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #eef2f1;
+      color: #38504d;
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .open-app {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--brand-strong);
+      font-weight: 850;
+    }
+
+    .open-app svg {
+      flex: 0 0 auto;
+    }
+
+    footer {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        min-height: 240px;
+      }
+
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 24px, 1120px);
+        padding-top: 18px;
+      }
+
+      header,
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 14vw, 3.8rem);
+      }
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>رسائل عيد الأضحى</h1>
-    <p>
-      تطبيق عربي لمشاركة رسائل وبطاقات تهنئة بمناسبة عيد الأضحى المبارك.
-    </p>
-    <div class="panel">
-      <h2>الدعم والخصوصية</h2>
-      <p>
-        للتواصل: <a href="mailto:motasem.adnroid@gmail.com">motasem.adnroid@gmail.com</a>
-      </p>
-      <p>
-        <a href="privacy-policy.html">سياسة الخصوصية</a>
-      </p>
-    </div>
+  <main class="page">
+    <header>
+      <div class="brand" aria-label="Motasem Apps">
+        <span class="brand-mark">MA</span>
+        <span>Motasem Apps</span>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">All apps in one place.</h1>
+      </div>
+      <div class="visual" aria-hidden="true">
+        <div class="visual-label">Play, greet, and share.</div>
+      </div>
+    </section>
+
+    <section aria-labelledby="apps-title">
+      <div class="section-head">
+        <h2 id="apps-title">Applications</h2>
+        <span class="count" id="app-count"></span>
+      </div>
+      <div class="apps-grid" id="apps"></div>
+    </section>
+
+    <footer>
+      Update the apps list inside this file to add, remove, or reorder applications.
+    </footer>
   </main>
+
+  <script>
+    const apps = [
+      {
+        name: "Kids Games",
+        href: "https://play.google.com/store/apps/details?id=dana.farah.arabicmemorygame",
+        initials: "KG",
+        description: "A friendly collection of small games designed for children to play and explore.",
+        tags: ["Games", "Kids", "Play"],
+        color: "#0f766e"
+      },
+      {
+        name: "Adha Greetings",
+        href: "https://play.google.com/store/apps/details?id=dana.farah.greetingmessages",
+        initials: "AG",
+        description: "Create and share Eid Al-Adha greeting messages with a clean, festive experience.",
+        tags: ["Greetings", "Eid", "Share"],
+        color: "#b45309"
+      },
+      {
+        name: "Cards Games",
+        href: "",
+        initials: "CG",
+        description: "Coming soon on Google Play.",
+        tags: ["Cards", "Games", "Fun"],
+        color: "#1d4ed8"
+      }
+    ];
+
+    const appsContainer = document.querySelector("#apps");
+    const appCount = document.querySelector("#app-count");
+
+    appCount.textContent = `${apps.length} apps`;
+
+    appsContainer.innerHTML = apps.map((app) => `
+      <${app.href ? `a class="app-card" href="${app.href}" target="_blank" rel="noopener noreferrer"` : `div class="app-card app-card-disabled" aria-disabled="true"`} style="--card-color: ${app.color}">
+        <div class="app-art" aria-hidden="true">${app.initials}</div>
+        <div>
+          <h3>${app.name}</h3>
+          <p>${app.description}</p>
+        </div>
+        <div class="tags" aria-label="${app.name} categories">
+          ${app.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+        </div>
+        <span class="open-app">
+          ${app.href ? "Open on Play Store" : "Not published yet"}
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </span>
+      </${app.href ? "a" : "div"}>
+    `).join("");
+  </script>
 </body>
 </html>
