@@ -223,6 +223,7 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.58;
+      white-space: pre-line;
     }
 
     .tags {
@@ -337,7 +338,13 @@
         name: "أجمل التهاني والرسائل الإسلامية لكل مناسبة",
         href: "https://play.google.com/store/apps/details?id=dana.farah.greetingmessages",
         icon: "icons/adha-greetings.webp",
-        description: "Create and share Eid Al-Adha greeting messages with a clean, festive experience.",
+        description: `شارك أجمل التهاني والرسائل الإسلامية مع الأهل والأصدقاء في المناسبات الدينية. 💚
+
+🕋 تهاني عيد الأضحى المبارك
+🌙 تهاني السنة الهجرية الجديدة
+🕌 تهاني المولد النبوي الشريف
+
+اختر الرسالة التي تعجبك وشاركها بسهولة مع من تحب.`,
         tags: ["Greetings", "Eid", "Share"]
       },
       {
@@ -373,7 +380,7 @@
         <img class="app-art" src="${app.icon}" alt="${app.name} app icon" width="78" height="78" loading="lazy" decoding="async">
         <div>
           <h3>${app.name}</h3>
-          <p>${app.description}</p>
+          <p dir="auto">${app.description}</p>
         </div>
         <div class="tags" aria-label="${app.name} categories">
           ${app.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
